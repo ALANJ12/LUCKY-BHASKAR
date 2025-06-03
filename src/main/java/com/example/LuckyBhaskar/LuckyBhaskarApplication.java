@@ -8,6 +8,7 @@ public class LuckyBhaskarApplication {
 
 	public static void main(String[] args) {
 		System.out.println("hii");
+//		"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqb2huIiwiaXNzIjoibXktYXBwIiwiaWF0IjoxNzQ4OTU2OTk5LCJleHAiOjE3NDg5NjA1OTl9.mVXxLvHI4SqnE5u2zEK0sHgLqj7M4p1uBEwFBb7O3-s"
 		SpringApplication.run(LuckyBhaskarApplication.class, args)
 
 		;
