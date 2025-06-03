@@ -7,7 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class LuckyBhaskarApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LuckyBhaskarApplication.class, args);
+		System.out.println("hii");
+		SpringApplication.run(LuckyBhaskarApplication.class, args)
+
+		;
 	}
 
 }
