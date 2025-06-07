@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -45,7 +46,7 @@ public class SecurityConfig {
 //
 //     This says: "Let everyone (unauthenticated) access /auth/login."
 //        This is necessary so users can log in without a token.
-                        .requestMatchers("/auth/login").permitAll()
+                        .requestMatchers("/auth/login","/auth/register/admin","auth/register/user").permitAll()
 
 //                        All other endpoints (like /hello) must be authenticated.
 //                                Meaning: only users with a valid JWT can access them.
@@ -67,10 +68,13 @@ public class SecurityConfig {
 //    This defines how passwords are checked.
 //    NoOpPasswordEncoder = plain text passwords (not safe in production).
 //    Later you can replace this with BCryptPasswordEncoder for hashing.
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return NoOpPasswordEncoder.getInstance(); // for plain-text (use BCrypt in production)
+//    }
+
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance(); // for plain-text (use BCrypt in production)
+        return new BCryptPasswordEncoder();
     }
-
-
 }
